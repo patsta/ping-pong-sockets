@@ -9,9 +9,9 @@ PORT = 65432        # The port used by the server
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 i = 0
 client.connect((HOST, PORT))
-while i <= 10:
+while True:
     client.sendall(b"Ping")
-    i = i + 1
+    #i = i + 1
 
 
 

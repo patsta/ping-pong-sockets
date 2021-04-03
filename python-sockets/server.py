@@ -14,8 +14,8 @@ def main():
     server.listen()
     while True:
         print("Waiting for a client ....")
-        (client, address) = server.accept()
-        print(client)
+        data = server.recv(1024)
+        print(data)
 
 
 if __name__ == "__main__":
