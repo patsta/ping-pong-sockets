@@ -15,12 +15,12 @@ public class SocketsClient {
             ObjectInputStream outputFromServer = new ObjectInputStream(pongServer.getInputStream());
             ObjectOutputStream inputFromClient = new ObjectOutputStream(pongServer.getOutputStream());
 
-            for(int i = 0; i <= 9; i++) {
-                Object clientMessage = new String(i + ": PING");
+            for(int i = 1; i <= 10; i++) {
+                Object message = new String(i + ": PING");
                 // Send data to server
-                inputFromClient.writeObject(clientMessage);
+                inputFromClient.writeObject(message);
 
-                System.out.println("Client-Message: " + clientMessage);
+                System.out.println("Client-Message: " + message);
 
                 Object receivedServerMessage = outputFromServer.readObject();
                 System.out.println("Following server message received: " + receivedServerMessage);

@@ -2,6 +2,8 @@
 import java.net.*;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+
+
 public class SocketsServer {
     public static void main (String args[]) {
         // Define socket variable
@@ -11,23 +13,23 @@ public class SocketsServer {
             serverSocket = new ServerSocket(serverPort);
             System.out.println("Server started on port: " + serverSocket.getLocalPort());
             System.out.println("Waiting for connections...");
-            Socket client = serverSocket.accept();
-            System.out.println("Client accepted: " + client.getRemoteSocketAddress());
+            Socket clientSocket = serverSocket.accept();
+            System.out.println("Client accepted: " + clientSocket.getRemoteSocketAddress());
             // Create Input and Output Streams
-            ObjectOutputStream outputToClient = new ObjectOutputStream(client.getOutputStream());
-            ObjectInputStream inputFromClient = new ObjectInputStream(client.getInputStream());
+            ObjectOutputStream outputToClient = new ObjectOutputStream(clientSocket.getOutputStream());
+            ObjectInputStream inputFromClient = new ObjectInputStream(clientSocket.getInputStream());
 
             // Receive 10 times PING and response with PONG
 
-            for (int i = 0; i <= 9; i++) {
+            for (int i = 1; i <= 10; i++) {
                 System.out.println("Waiting for data...");
-                Object ServerMessage = inputFromClient.readObject();
-                System.out.println("Received from client: " + ServerMessage);
+                Object message = inputFromClient.readObject();
+                System.out.println("Received from client: " + message);
 
                 // Prepare response message
-                ServerMessage = new String("Pong");
-                outputToClient.writeObject(ServerMessage);
-                System.out.println("Server-Message: " + ServerMessage);
+                message = new String("Pong");
+                outputToClient.writeObject(message);
+                System.out.println("Server-Message: " + message);
 
             }
 
