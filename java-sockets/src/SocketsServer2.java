@@ -64,7 +64,7 @@ public class SocketsServer2{
                 serverSockets.close();
 
             }catch (Exception e) {
-                System.out.println("Das war der " + i + " Versuch");
+                System.out.println("This was the " + i + " try");
                 }
         } // for
     }
