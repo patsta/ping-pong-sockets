@@ -6,17 +6,17 @@ import struct
 
 def main():
     try:
-        print "creating socket"
+        print("creating socket")
         serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-        print "binding socket to localhost"
+        print("binding socket to localhost")
         serversocket.bind(("localhost", 65000))
 
-        print "listening"
+        print("listening")
         serversocket.listen(1)
 
         # accept connections from outside
-        print "waiting for a client to connect..."
+        print("waiting for a client to connect...")
         (clientsocket, address) = serversocket.accept()
 
         for i in range(1,11):
@@ -32,14 +32,14 @@ def main():
             print("Client " + data)
 
             clientsocket.send(struct.pack("i", 4))
-            print "Sending PONG"
+            print("Sending PONG")
             # Sending
             clientsocket.send("PONG")
 
         # Close Sockets
         clientsocket.close()
         serversocket.close()
-        print "Server closed"
+        print("Server closed")
     except Exception as exp:
         print(exp)
 
