@@ -7,4 +7,4 @@ java SocketsServer.java or java SocketsClient.java
 ****
 ### Python Sockets
 Start the server and client with the following command:
-python3 server.py or python3 client.py
+python server.py or python client.py
