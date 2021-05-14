@@ -3,15 +3,15 @@ import java.util.concurrent.TimeUnit;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class SocketsClient2{
+public class SocketsClient4{
     public static void main( String[] args ) {
         String serverHost = "172.0.0.1";
 
-        // Try to reconnect 10 times
         for(int i = 1; i < 11; i++) {
             try {
-                // Timout of 1 second
-                TimeUnit.SECONDS.sleep(1);
+                // Timout of 2 second
+                System.out.println("Waiting 2 seconds to connect...");
+                TimeUnit.SECONDS.sleep(2);
 
                 // close existing sockets and streams
                 ObjectOutputStream outputToServer = null;
@@ -60,8 +60,9 @@ public class SocketsClient2{
                 socketsServer.close();
                 System.out.println("Successfully finished");
 
-                }catch(Exception e){
-                    System.out.println("Retry to connect");
+            }catch(Exception e){
+                System.out.println("Retry to connect");
+
             }
         }
     }

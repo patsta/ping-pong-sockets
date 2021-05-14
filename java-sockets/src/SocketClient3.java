@@ -3,7 +3,7 @@ import java.util.concurrent.TimeUnit;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class SocketsClient2{
+public class SocketsClient3{
     public static void main( String[] args ) {
         String serverHost = "172.0.0.1";
 
@@ -60,8 +60,8 @@ public class SocketsClient2{
                 socketsServer.close();
                 System.out.println("Successfully finished");
 
-                }catch(Exception e){
-                    System.out.println("Retry to connect");
+            }catch(Exception e){
+                System.out.println("Retry to connect");
             }
         }
     }

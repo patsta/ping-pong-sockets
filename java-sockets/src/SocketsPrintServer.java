@@ -14,15 +14,14 @@ public class SocketsPrintServer {
             System.out.println("Waiting for connections...");
             Socket clientSocket = serverSocket.accept();
             System.out.println("Client accepted: " + clientSocket.getRemoteSocketAddress());
-
             // Create Input and Output Streams
-            PrintWriter outputToClient = new PrintWriter(clientSocket.getOutputStream());
+            PrintWriter outputToClient = new PrintWriter(clientSocket.getOutputStream(), true);
             BufferedReader inputFromClient = new BufferedReader(new InputStreamReader((clientSocket.getInputStream())));
 
             // Receive 10 times PING and response with PONG
 
             for (int i = 1; i <= 10; i++) {
-                System.out.println("Waiting for data...");
+
                 Object message = inputFromClient.readLine();
                 System.out.println("Received from client: " + message);
 

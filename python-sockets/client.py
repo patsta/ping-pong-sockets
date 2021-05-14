@@ -8,7 +8,7 @@ def main():
     try:
         serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-        addr = ("127.0.0.1", 65000)
+        addr = ("172.0.0.1", 65000)
 
         serverSocket.connect(addr)
 
