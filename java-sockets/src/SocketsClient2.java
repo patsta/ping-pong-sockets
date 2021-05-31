@@ -5,7 +5,7 @@ import java.io.ObjectOutputStream;
 
 public class SocketsClient2{
     public static void main( String[] args ) {
-        String serverHost = "172.0.0.1";
+        String serverHost = "127.0.0.1";
 
         // Try to reconnect 10 times
         for(int i = 1; i < 11; i++) {

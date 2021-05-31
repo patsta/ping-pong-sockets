@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SocketsClient {
     public static void main(String[] args) {
-        String serverAddress = "172.0.0.1";
+        String serverAddress = "127.0.0.1";
         Integer serverPort = 65007;
         try {
             Socket pongServer = new Socket(serverAddress, serverPort);

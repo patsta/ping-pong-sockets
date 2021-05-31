@@ -20,7 +20,7 @@ public class SocketsPrintClient{ // CLIENT
 
             for(int i = 1; i<=10; i++) {
                 // Send data to server
-                Object message = new String(i + ": PING" );
+                Object message = new String(i + ": PING");
                 outFromClient.println(message);
 
                 System.out.println("Client-Message: " + message);

@@ -5,7 +5,7 @@ import java.io.ObjectOutputStream;
 
 public class SocketsClient4{
     public static void main( String[] args ) {
-        String serverHost = "172.0.0.1";
+        String serverHost = "127.0.0.1";
 
         for(int i = 1; i < 11; i++) {
             try {
