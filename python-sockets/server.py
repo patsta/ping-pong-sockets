@@ -2,7 +2,7 @@
 
 import socket
 import struct
-
+import time
 
 def main():
     try:
@@ -20,26 +20,17 @@ def main():
         (clientsocket, address) = serversocket.accept()
 
         for i in range(1,11):
-            data = clientsocket.recv(4)
-            (msg,) = struct.unpack("i", data)
-            data = ""
-            remaining = int(msg)
-            while remaining > 0:
-                recieved = clientsocket.recv(remaining)
-                remaining = remaining - len(recieved)
-                data += recieved
+            time.sleep(1)
+            data = clientsocket.recv(1024)
+            if not data:
+                break
 
-            print("Client " + data)
+            print("Client send: " + repr(data))
+            clientsocket.sendall(str(i) + " : Pong")
 
-            clientsocket.send(struct.pack("i", 4))
-            print("Sending PONG")
-            # Sending
-            clientsocket.send("PONG")
-
-        # Close Sockets
         clientsocket.close()
         serversocket.close()
-        print("Server closed")
+
     except Exception as exp:
         print(exp)
 
